@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Stock" syncable="YES">
+        <attribute name="averagedailyvolume" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="change" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dayshigh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dayslow" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="daysrange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lasttradepriceonly" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="marketcapitalization" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stockexchange" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="symbol" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearhigh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearlow" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Stock" positionX="-63" positionY="-18" width="128" height="240"/>
+    </elements>
+</model>
