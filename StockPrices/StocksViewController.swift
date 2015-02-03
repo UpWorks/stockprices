@@ -13,10 +13,6 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
   
   var stocks = [NSManagedObject]()
   
-  var requestName = [String]()
-  //
-  var requestPrice = [String]()
-  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
