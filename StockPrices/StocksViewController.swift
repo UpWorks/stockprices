@@ -20,7 +20,7 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
 
-    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     let managedContext = appDelegate.managedObjectContext!
 
@@ -28,7 +28,7 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
 
     var error: NSError?
     
-    let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as [NSManagedObject]?
+    let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
     
     if let results = fetchedResults {
       stocks = results
@@ -52,7 +52,7 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
   
   override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     if editingStyle == UITableViewCellEditingStyle.Delete {
-      let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
       let managedContext = appDelegate.managedObjectContext!
     
@@ -72,11 +72,11 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("StockCell") as UITableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier("StockCell") as! UITableViewCell
     
     let stock = stocks[indexPath.row]
-    cell.textLabel!.text = stock.valueForKey("name") as String?
-    cell.detailTextLabel!.text = stock.valueForKey("lasttradepriceonly") as String?
+    cell.textLabel!.text = stock.valueForKey("name") as! String?
+    cell.detailTextLabel!.text = stock.valueForKey("lasttradepriceonly") as! String?
     
     return cell
   }
@@ -91,7 +91,7 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
     let saveAction = UIAlertAction(title: "Save", style: .Default) { (action: UIAlertAction!) -> Void in
   
 
-      let textField = alert.textFields![0] as UITextField
+      let textField = alert.textFields![0] as! UITextField
       
       self.saveStock(textField.text)
       
@@ -115,7 +115,7 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
   
   func saveStock(name: String) {
       
-      let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+      let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
       
       let managedContext = appDelegate.managedObjectContext!
 
