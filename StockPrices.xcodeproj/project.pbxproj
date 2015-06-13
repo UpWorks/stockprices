@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CA764822DCB68A958C1E898D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6290A86CE50535D91383A03C /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		7E94D9851B2CB79000B9615B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E94D9841B2CB79000B9615B /* NetworkManager.swift */; };
+		9450F8B09A92459DEE41EA33 /* Pods_StockPrices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38C722975DAFBA0981B209CF /* Pods_StockPrices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		E8A5DE401A7C856100207D8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5DE3F1A7C856100207D8B /* AppDelegate.swift */; };
 		E8A5DE431A7C856100207D8B /* StockPrices.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8A5DE411A7C856100207D8B /* StockPrices.xcdatamodeld */; };
-		E8A5DE451A7C856100207D8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5DE441A7C856100207D8B /* ViewController.swift */; };
 		E8A5DE481A7C856100207D8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A5DE461A7C856100207D8B /* Main.storyboard */; };
 		E8A5DE4A1A7C856100207D8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8A5DE491A7C856100207D8B /* Images.xcassets */; };
 		E8A5DE4D1A7C856100207D8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A5DE4B1A7C856100207D8B /* LaunchScreen.xib */; };
@@ -29,14 +29,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6290A86CE50535D91383A03C /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7807C4C07C17EC41715D910B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		AF00A39EA5D719F27DF9AF0E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		38C722975DAFBA0981B209CF /* Pods_StockPrices.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockPrices.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E94D9841B2CB79000B9615B /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D17A1DB5FC43779E108998B0 /* Pods-StockPrices.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockPrices.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StockPrices/Pods-StockPrices.debug.xcconfig"; sourceTree = "<group>"; };
 		E8A5DE3A1A7C856100207D8B /* StockPrices.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockPrices.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A5DE3E1A7C856100207D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A5DE3F1A7C856100207D8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8A5DE421A7C856100207D8B /* StockPrices.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockPrices.xcdatamodel; sourceTree = "<group>"; };
-		E8A5DE441A7C856100207D8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E8A5DE471A7C856100207D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8A5DE491A7C856100207D8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E8A5DE4C1A7C856100207D8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		E8A5DE571A7C856100207D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A5DE581A7C856100207D8B /* StockPricesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPricesTests.swift; sourceTree = "<group>"; };
 		E8D6959E1A7DD51200F143DC /* StocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StocksViewController.swift; sourceTree = "<group>"; };
+		E8DDB014C8EDF5CEBACD1CBE /* Pods-StockPrices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockPrices.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockPrices/Pods-StockPrices.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA764822DCB68A958C1E898D /* Pods.framework in Frameworks */,
+				9450F8B09A92459DEE41EA33 /* Pods_StockPrices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,16 +68,24 @@
 		3C7D0DE99C0898D5BA789F33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6290A86CE50535D91383A03C /* Pods.framework */,
+				38C722975DAFBA0981B209CF /* Pods_StockPrices.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7E94D9831B2CA77500B9615B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8D6959E1A7DD51200F143DC /* StocksViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		E17569DA39B691A3A824E0DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AF00A39EA5D719F27DF9AF0E /* Pods.debug.xcconfig */,
-				7807C4C07C17EC41715D910B /* Pods.release.xcconfig */,
+				D17A1DB5FC43779E108998B0 /* Pods-StockPrices.debug.xcconfig */,
+				E8DDB014C8EDF5CEBACD1CBE /* Pods-StockPrices.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -106,13 +114,13 @@
 			isa = PBXGroup;
 			children = (
 				E8A5DE3F1A7C856100207D8B /* AppDelegate.swift */,
-				E8A5DE441A7C856100207D8B /* ViewController.swift */,
+				7E94D9841B2CB79000B9615B /* NetworkManager.swift */,
 				E8A5DE461A7C856100207D8B /* Main.storyboard */,
+				7E94D9831B2CA77500B9615B /* ViewControllers */,
 				E8A5DE491A7C856100207D8B /* Images.xcassets */,
 				E8A5DE4B1A7C856100207D8B /* LaunchScreen.xib */,
 				E8A5DE411A7C856100207D8B /* StockPrices.xcdatamodeld */,
 				E8A5DE3D1A7C856100207D8B /* Supporting Files */,
-				E8D6959E1A7DD51200F143DC /* StocksViewController.swift */,
 			);
 			path = StockPrices;
 			sourceTree = "<group>";
@@ -269,7 +277,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StockPrices/Pods-StockPrices-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C8903745C91AB5936CB8567F /* Embed Pods Frameworks */ = {
@@ -284,7 +292,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StockPrices/Pods-StockPrices-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -294,7 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A5DE451A7C856100207D8B /* ViewController.swift in Sources */,
+				7E94D9851B2CB79000B9615B /* NetworkManager.swift in Sources */,
 				E8A5DE431A7C856100207D8B /* StockPrices.xcdatamodeld in Sources */,
 				E8A5DE401A7C856100207D8B /* AppDelegate.swift in Sources */,
 				E8D6959F1A7DD51200F143DC /* StocksViewController.swift in Sources */,
@@ -418,7 +426,7 @@
 		};
 		E8A5DE5D1A7C856100207D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF00A39EA5D719F27DF9AF0E /* Pods.debug.xcconfig */;
+			baseConfigurationReference = D17A1DB5FC43779E108998B0 /* Pods-StockPrices.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -430,7 +438,7 @@
 		};
 		E8A5DE5E1A7C856100207D8B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7807C4C07C17EC41715D910B /* Pods.release.xcconfig */;
+			baseConfigurationReference = E8DDB014C8EDF5CEBACD1CBE /* Pods-StockPrices.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

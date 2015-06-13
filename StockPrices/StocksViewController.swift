@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 import Alamofire
+import SwiftyJSON
+
 
 class StocksViewController: UITableViewController, UITableViewDataSource {
   
@@ -124,28 +126,36 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
       let stock = NSManagedObject(entity: entity!, insertIntoManagedObjectContext:managedContext)
       
       let url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22"+name+"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
-      
-      Alamofire.request(.GET, url).responseJSON() {
-        (_, _, data, _) in
+    
+    Alamofire.request(.GET, url)
+        .responseJSON {(request,response,data,error) in
+            let quote = JSON(data!)
 
-        let quote = data?.objectForKey("query")?.objectForKey("results")?.objectForKey("quote") as? NSDictionary
         
-        let name = quote?.objectForKey("Name") as? String
-      
-        let price = quote?.objectForKey("LastTradePriceOnly") as? String
-
-        stock.setValue(name, forKey: "name")
-      
-        stock.setValue(price, forKey: "lasttradepriceonly")
-      
-        self.stocks.append(stock)
-      
-        self.tableView.reloadData()
-      
-        var error: NSError?
-        if !managedContext.save(&error) {
-          println("Could not save \(error), \(error?.userInfo)")
+        println(quote["query"]["results"]["quote"])
+        
+        if quote != nil
+        {
+            //let p = quote[0]["LastTradePriceOnly"] as [[String : AnyObject]]
+            //println(p)
         }
+        
+//        let name = quote?.objectForKey("Name") as? String
+//      
+//        let price = quote?.objectForKey("LastTradePriceOnly") as? String
+//
+//        stock.setValue(name, forKey: "name")
+//      
+//        stock.setValue(price, forKey: "lasttradepriceonly")
+//      
+//        self.stocks.append(stock)
+//      
+//        self.tableView.reloadData()
+//      
+//        var error: NSError?
+//        if !managedContext.save(&error) {
+//          println("Could not save \(error), \(error?.userInfo)")
+//        }
       }
       
   }
