@@ -127,18 +127,31 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
       
       let url = "https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22"+name+"%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback="
     
-    Alamofire.request(.GET, url)
-        .responseJSON {(request,response,data,error) in
-            let quote = JSON(data!)
+    NetworkManager.sharedInstance.findSymbol(name, completionHandler: {
+        (JSON, error) -> () in
+        
+        if let constJSON = JSON
+        {
+            print(constJSON)
+        }
+        else
+        {
+            // No items returned
+        }
+    })
+    
+    //Alamofire.request(.GET, url)
+        //.responseJSON {(request,response,data,error) in
+            //let quote = JSON(data!)
 
         
-        println(quote["query"]["results"]["quote"])
+        //println(quote["query"]["results"]["quote"])
         
-        if quote != nil
-        {
+        //if quote != nil
+        //{
             //let p = quote[0]["LastTradePriceOnly"] as [[String : AnyObject]]
             //println(p)
-        }
+        //}
         
 //        let name = quote?.objectForKey("Name") as? String
 //      
@@ -156,7 +169,7 @@ class StocksViewController: UITableViewController, UITableViewDataSource {
 //        if !managedContext.save(&error) {
 //          println("Could not save \(error), \(error?.userInfo)")
 //        }
-      }
+      //}
       
   }
   
