@@ -1,22 +1,22 @@
 //
-//  StockCell.swift
+//  SymbolCell.swift
 //  StockPrices
 //
-//  Created by Michael Updegraff on 6/14/15.
+//  Created by Michael Updegraff on 6/15/15.
 //  Copyright (c) 2015 Michael Updegraff. All rights reserved.
 //
 
-import UIKit
 import CoreData
 import Alamofire
 import SwiftyJSON
+import UIKit
 
-class StockCell: UITableViewCell {
+class SymbolCell: UITableViewCell {
 
     @IBOutlet var stockNameLabel: UILabel?
-    @IBOutlet var lastPriceLabel: UILabel?
+    @IBOutlet var stockSymbolLabel: UILabel?
     
-    var stock: NSManagedObject?
+    var symbol: SymbolResultModel?
     {
         didSet
         {
@@ -28,15 +28,15 @@ class StockCell: UITableViewCell {
         super.awakeFromNib()
         
         self.stockNameLabel?.text = nil
-        self.lastPriceLabel?.text = nil
-        
+        self.stockSymbolLabel?.text = nil
     }
     
-    override func prepareForReuse() {
+    override func prepareForReuse()
+    {
         super.prepareForReuse()
         
         self.stockNameLabel?.text = nil
-        self.lastPriceLabel?.text = nil
+        self.stockSymbolLabel?.text = nil
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -47,17 +47,17 @@ class StockCell: UITableViewCell {
     
     func configure()
     {
-        if let constStock = stock
+        if let constSymbol = symbol
         {
-            var stockName = constStock.valueForKey("name") as! String
-            var lastPrice = constStock.valueForKey("lasttradepriceonly") as! String
-            self.stockNameLabel!.text = stockName
-            self.lastPriceLabel!.text = lastPrice
+            //println(symbol)
+            //var stockName = constStock.valueForKey("name") as! String
+            //var lastPrice = constStock.valueForKey("lasttradepriceonly") as! String
+            self.stockNameLabel!.text = symbol?.name
+            self.stockSymbolLabel!.text = symbol?.symbol
         }
         else
         {
             // Alert user to issue
         }
     }
-    
 }

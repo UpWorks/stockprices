@@ -17,8 +17,8 @@ class TabBarController: UITabBarController {
 
         var stocksListViewController = StocksListViewController(nibName: "StocksListViewController", bundle: nil)
         
-        var searchViewController = UIViewController()
-        searchViewController.view.backgroundColor = UIColor.yellowColor()
+        var searchViewController = SearchViewController(nibName: "SearchViewController", bundle: nil)
+
         
         var viewControllers = [stocksListViewController,searchViewController]
         self.setViewControllers(viewControllers, animated: true)
@@ -59,7 +59,6 @@ class TabBarController: UITabBarController {
             preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action: UIAlertAction!) -> Void in
-            
             
             let textField = alert.textFields![0] as! UITextField
             

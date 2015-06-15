@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 
 
-typealias JsonCompletionHandler = (JSON: JSON?, error: NSError?) -> ()
+typealias ObjectsCompletionHandler = (objects: [AnyObject]?, error: NSError?) -> ()
 
 public class NetworkManager
 {
@@ -25,7 +25,7 @@ public class NetworkManager
         return Singleton.instance
     }
     
-    func findSymbol(searchTerm: String!, completionHandler: JsonCompletionHandler!)
+    func findSymbol(searchTerm: String!, completionHandler: ObjectsCompletionHandler!)
     {
         
         Alamofire.request(.GET, Constants.YQL.SymbolLookUpURL, parameters: ["query" : searchTerm, "callback" : "YAHOO.Finance.SymbolSuggest.ssCallback"]).responseString
@@ -41,15 +41,37 @@ public class NetworkManager
                 quoteB.removeRange(range)
                 
                 if let dataFromString = quoteB.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
-                    
+                   
                     let json = JSON(data: dataFromString)
-                    completionHandler(JSON: json, error: nil)
+                    
+                    if let resultsArray = json["ResultSet"]["Result"].array {
+                        
+                        var searchResults = [SymbolResultModel]()
+                        
+                        for resultsDict in resultsArray {
+                            
+                            var symbol: String? = resultsDict["symbol"].string
+                            var name: String? = resultsDict["name"].string
+                            var exch: String? = resultsDict["exch"].string
+                            var type: String? = resultsDict["type"].string
+                            var exchDisp: String? = resultsDict["exchDisp"].string
+                            var typeDisp: String? = resultsDict["typeDisp"].string
+                            
+                            var result = SymbolResultModel(symbol: symbol, name: name, exch: exch, type: type, exchDisp: exchDisp, typeDisp: typeDisp)
+                            
+                            searchResults.append(result)
+                            
+                            completionHandler(objects: searchResults, error: nil)
+                            
+                        }
+                    }
+                    
                 }
                 
             }
     }
 
-    func getPricing(symbol: String!, completionHandler: JsonCompletionHandler!)
+    func getPricing(symbol: String!, completionHandler: ObjectsCompletionHandler!)
     {
         
         let query = "select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22"+symbol+"%22)"
@@ -66,7 +88,7 @@ public class NetworkManager
                 if data != nil
                 {
                     let json = JSON(data!)
-                    completionHandler(JSON: json, error: nil)
+                    //completionHandler(objects: json, error: nil)
                 }
                 else
                 {

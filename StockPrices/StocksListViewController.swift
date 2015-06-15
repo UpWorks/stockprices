@@ -33,7 +33,6 @@ class StocksListViewController: UIViewController, UITableViewDataSource {
         if let results = fetchedResults
         {
             stocks = results
-            println(results)
         }
         else
         {
