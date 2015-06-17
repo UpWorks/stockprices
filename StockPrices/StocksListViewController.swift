@@ -17,8 +17,19 @@ class StocksListViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView?
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
+        
         super.viewDidLoad()
+        
+        var nib = UINib(nibName: "StockCell", bundle: nil)
+        tableView?.registerNib(nib, forCellReuseIdentifier: "StockCellIdentifier")
+        
+    }
+    
+    override func viewWillAppear(animated: Bool)
+    {
+        super.viewWillAppear(animated)
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
@@ -32,16 +43,13 @@ class StocksListViewController: UIViewController, UITableViewDataSource {
         
         if let results = fetchedResults
         {
-            stocks = results
+            self.stocks = results
+            self.tableView?.reloadData()
         }
         else
         {
             println("Could not fetch \(error), \(error!.userInfo)")
         }
-        
-        var nib = UINib(nibName: "StockCell", bundle: nil)
-        tableView?.registerNib(nib, forCellReuseIdentifier: "StockCellIdentifier")
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +61,31 @@ class StocksListViewController: UIViewController, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return stocks.count
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            
+            let managedContext = appDelegate.managedObjectContext!
+            
+            let stockToRemove = stocks[indexPath.row]
+            stocks.removeAtIndex(indexPath.row)
+            
+            managedContext.deleteObject(stockToRemove)
+            
+            var error: NSError?
+            if !managedContext.save(&error) {
+                println("Could not save: \(error)")
+            }
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            self.tableView?.reloadData()
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell

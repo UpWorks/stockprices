@@ -36,8 +36,7 @@ class TabBarController: UITabBarController {
         self.edgesForExtendedLayout = UIRectEdge.None
         self.navigationItem.hidesBackButton = true
         self.tabBar.translucent = false
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add Stock", style: .Done, target: self, action: "addStock:")
+
     }
     
     override func viewWillAppear(animated: Bool) {

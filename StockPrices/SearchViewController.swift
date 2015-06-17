@@ -28,7 +28,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {

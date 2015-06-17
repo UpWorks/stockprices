@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 import Alamofire
 import SwiftyJSON
 
@@ -28,7 +29,7 @@ public class NetworkManager
     func findSymbol(searchTerm: String!, completionHandler: ObjectsCompletionHandler!)
     {
         
-        Alamofire.request(.GET, Constants.YQL.SymbolLookUpURL, parameters: ["query" : searchTerm, "callback" : "YAHOO.Finance.SymbolSuggest.ssCallback"]).responseString
+        Alamofire.request(.GET, Constants.YQL.SymbolLookUpURL, parameters: ["query" : searchTerm, "callback" : Constants.YQL.Callback]).responseString
             {
                 (request,response,data,error) in
                 
@@ -40,7 +41,8 @@ public class NetworkManager
                 
                 quoteB.removeRange(range)
                 
-                if let dataFromString = quoteB.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false) {
+                if let dataFromString = quoteB.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
+                {
                    
                     let json = JSON(data: dataFromString)
                     
@@ -71,24 +73,35 @@ public class NetworkManager
             }
     }
 
-    func getPricing(symbol: String!, completionHandler: ObjectsCompletionHandler!)
+    func getPricing(thisSymbol: String!)
     {
         
-        let query = "select%20*%20from%20yahoo.finance.quote%20where%20symbol%20in%20(%22"+symbol+"%22)"
-        
-        let format = "json"
-        
-        let env = "store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
+        let query = "select * from yahoo.finance.quote where symbol in (\"" + thisSymbol + "\")"
     
-        
-        Alamofire.request(.GET, Constants.YQL.PriceLookUpURL, parameters: ["query" : query, "format" : "json", "env" : env]).responseJSON
+        Alamofire.request(.GET, Constants.YQL.PriceLookUpURL, parameters: ["q" : query, "format" : Constants.YQL.Format, "env" : Constants.YQL.Env]).responseJSON
             {
                 (request,response,data,error) in
                 
                 if data != nil
                 {
                     let json = JSON(data!)
-                    //completionHandler(objects: json, error: nil)
+                    
+                    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    
+                    let managedContext = appDelegate.managedObjectContext!
+                    
+                    let entity =  NSEntityDescription.entityForName("Stock", inManagedObjectContext: managedContext)
+                    
+                    let stock = NSManagedObject(entity: entity!, insertIntoManagedObjectContext:managedContext)
+                    
+                    stock.setValue(json["query"]["results"]["quote"]["Name"].string, forKey: "name")
+                    
+                    stock.setValue(json["query"]["results"]["quote"]["LastTradePriceOnly"].string, forKey: "lasttradepriceonly")
+                    
+                    var error: NSError?
+                    if !managedContext.save(&error) {
+                        println("Could not save \(error), \(error?.userInfo)")
+                    }
                 }
                 else
                 {

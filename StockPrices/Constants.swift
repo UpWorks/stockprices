@@ -14,6 +14,12 @@ struct Constants {
         
         static let SymbolLookUpURL = "http://d.yimg.com/autoc.finance.yahoo.com/autoc"
         
+        static let Format = "json"
+        
+        static let Callback = "YAHOO.Finance.SymbolSuggest.ssCallback"
+        
+        static let Env = "store://datatables.org/alltableswithkeys"
+        
         static let PriceLookUpURL = "https://query.yahooapis.com/v1/public/yql"
         
     }

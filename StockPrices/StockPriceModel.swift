@@ -26,7 +26,7 @@ class StockPriceModel: NSObject, Printable {
     let stockExchange: String
     
     override var description: String {
-        return "Symbol: \(symbol), AverageDailyVolume: \(averageDailyVolume), Change: \(change), DaysLow: \(daysLow), DaysHigh: \(daysHigh), YearLow: \(yearLow), YearHigh: \(yearHigh), MarketCapitalization: \(marketCapitalization), LastTradePriceOnly: \(lastTradePriceOnly), DaysRange: \(daysRange), Name: \(name), Symbol: \(symbol), Volume: \(volume), StockExchange: \(stockExchange),\n"
+        return "Symbol: \(symbol), AverageDailyVolume: \(averageDailyVolume), Change: \(change), DaysLow: \(daysLow), DaysHigh: \(daysHigh), YearLow: \(yearLow), YearHigh: \(yearHigh), MarketCapitalization: \(marketCapitalization), LastTradePriceOnly: \(lastTradePriceOnly), DaysRange: \(daysRange), Name: \(name), Symbol: \(symbol), Volume: \(volume), StockExchange: \(stockExchange)\n"
     }
     
     init(symbol: String?, averageDailyVolume: String?, change: String?, daysLow: String?, daysHigh: String?, yearLow: String?, yearHigh: String?, marketCapitalization: String?, lastTradePriceOnly: String?, daysRange: String?, name: String?, symbolb: String?, volume: String?, stockExchange: String?)

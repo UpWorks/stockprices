@@ -26,7 +26,6 @@
 		E8A5DE4A1A7C856100207D8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8A5DE491A7C856100207D8B /* Images.xcassets */; };
 		E8A5DE4D1A7C856100207D8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A5DE4B1A7C856100207D8B /* LaunchScreen.xib */; };
 		E8A5DE591A7C856100207D8B /* StockPricesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A5DE581A7C856100207D8B /* StockPricesTests.swift */; };
-		E8D6959F1A7DD51200F143DC /* StocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D6959E1A7DD51200F143DC /* StocksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +63,6 @@
 		E8A5DE521A7C856100207D8B /* StockPricesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockPricesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8A5DE571A7C856100207D8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A5DE581A7C856100207D8B /* StockPricesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockPricesTests.swift; sourceTree = "<group>"; };
-		E8D6959E1A7DD51200F143DC /* StocksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StocksViewController.swift; sourceTree = "<group>"; };
 		E8DDB014C8EDF5CEBACD1CBE /* Pods-StockPrices.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockPrices.release.xcconfig"; path = "Pods/Target Support Files/Pods-StockPrices/Pods-StockPrices.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,7 +96,6 @@
 		7E94D9831B2CA77500B9615B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E8D6959E1A7DD51200F143DC /* StocksViewController.swift */,
 				7E94D98D1B2E0C6900B9615B /* StocksListViewController.swift */,
 				7E94D98E1B2E0C6900B9615B /* StocksListViewController.xib */,
 				7E94D9911B2E0E8200B9615B /* StockCell.swift */,
@@ -364,7 +361,6 @@
 				7E94D98F1B2E0C6900B9615B /* StocksListViewController.swift in Sources */,
 				7ED758521B2F966B001E6C51 /* StockPriceModel.swift in Sources */,
 				E8A5DE401A7C856100207D8B /* AppDelegate.swift in Sources */,
-				E8D6959F1A7DD51200F143DC /* StocksViewController.swift in Sources */,
 				7ED758501B2F892D001E6C51 /* SymbolResultModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
