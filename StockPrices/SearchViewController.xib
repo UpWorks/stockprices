@@ -23,7 +23,7 @@
                         <outlet property="dataSource" destination="-1" id="xor-vm-Zvm"/>
                     </connections>
                 </tableView>
-                <searchBar contentMode="redraw" placeholder="Search Symbols" translatesAutoresizingMaskIntoConstraints="NO" id="DVL-TQ-0HI">
+                <searchBar contentMode="redraw" placeholder="Search Symbol" translatesAutoresizingMaskIntoConstraints="NO" id="DVL-TQ-0HI">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="lwg-6i-pjY"/>

@@ -16,7 +16,9 @@ class SymbolCell: UITableViewCell {
     @IBOutlet var stockNameLabel: UILabel?
     @IBOutlet var stockSymbolLabel: UILabel?
     @IBOutlet var addButton: UIButton?
+    
     var priceResult: StockPriceModel?
+    
     var symbol: SymbolResultModel?
     {
         didSet
@@ -53,11 +55,8 @@ class SymbolCell: UITableViewCell {
     {
         if let constSymbol = symbol
         {
-            //println(symbol)
-            //var stockName = constStock.valueForKey("name") as! String
-            //var lastPrice = constStock.valueForKey("lasttradepriceonly") as! String
-            self.stockNameLabel!.text = symbol!.name
-            self.stockSymbolLabel!.text = "Symbol: " + symbol!.symbol
+            self.stockNameLabel?.text = symbol!.name
+            self.stockSymbolLabel?.text = "Symbol: " + symbol!.symbol
             
             self.addButton?.hidden = false
         }
@@ -75,7 +74,7 @@ class SymbolCell: UITableViewCell {
 
         self.addButton?.enabled = false
         
-        let thisSymbol = symbol?.symbol
+        let thisSymbol = symbol!.symbol
         
         NetworkManager.sharedInstance.getPricing(thisSymbol)
 
